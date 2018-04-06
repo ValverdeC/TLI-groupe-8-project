@@ -1,0 +1,14 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.searchbar-form {
+    display: flex;
+    flex-direction: row;
+}
+
+.searchbar {
+    flex-grow: 1;
+}
