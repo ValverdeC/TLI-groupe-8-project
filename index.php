@@ -1,6 +1,10 @@
 <?php
 
-    class Router {
+    require("smarty/smarty.class.php"); // On inclut la classe Smarty
+    $smarty = new Smarty();
+    $smarty->display("src/app/pages/home/home.html");
+
+    /*class Router {
 
         private $url;
         private $routes = [];
@@ -49,5 +53,5 @@
             return $this->namedRoutes[$name]->getUrl($params);
         }
 
-    }
+    }*/
 ?>

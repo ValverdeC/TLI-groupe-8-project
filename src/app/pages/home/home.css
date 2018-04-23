@@ -12,3 +12,7 @@
 .searchbar {
     flex-grow: 1;
 }
+
+.dropdown-menu {
+    left: -123px;
+}
