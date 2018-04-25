@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-04-25 06:18:45
+/* Smarty version 3.1.30, created on 2018-04-25 07:24:11
   from "C:\wamp64\www\acuponture\src\app\pages\home\home.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5ae01dc535d198_17268100',
+  'unifunc' => 'content_5ae02d1b2cce37_72234586',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b45729f3f04fd175bee7f337f52e95fdab1d5575' => 
     array (
       0 => 'C:\\wamp64\\www\\acuponture\\src\\app\\pages\\home\\home.html',
-      1 => 1524637123,
+      1 => 1524641044,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ae01dc535d198_17268100 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ae02d1b2cce37_72234586 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!doctype html>
 <html lang="fr">
@@ -106,25 +106,29 @@ function content_5ae01dc535d198_17268100 (Smarty_Internal_Template $_smarty_tpl)
             </form>
         </div>
 
-        <?php
+        <table>
+            <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['list']->value, 'item');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['item']->value) {
 ?>
-            <?php echo $_smarty_tpl->tpl_vars['item']->value['code'];?>
-
-        <?php
+                <tr>
+                    <td><?php echo $_smarty_tpl->tpl_vars['item']->value['code'];?>
+</td>
+                    <td><?php echo $_smarty_tpl->tpl_vars['item']->value['nom'];?>
+</td>
+                    <td><?php echo $_smarty_tpl->tpl_vars['item']->value['element'];?>
+</td>
+                    <td><?php echo $_smarty_tpl->tpl_vars['item']->value['yin'];?>
+</td>
+                </tr>
+            <?php
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 ?>
 
-
-        <?php echo $_smarty_tpl->tpl_vars['data']->value;?>
-
-
-        <?php echo $_SERVER['SERVER_NAME'];?>
-
+        </table>
 
 
         <!-- Optional JavaScript -->

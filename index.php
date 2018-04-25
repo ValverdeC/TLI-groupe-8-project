@@ -8,27 +8,31 @@
     $password = "admin";
     $dbname = "acuponcture";
 
-    // Create connection
-    $connexion = mysqli_connect($servername, $username, $password, $dbname);
-    // Check connection
-    if ($connexion->connect_error) {
-        die("Connection failed: " . $connexion->connect_error);
-    }
-
-    $query = $connexion->prepare("SELECT * FROM symptome where idS = 1");
-    $query->execute();
-
     $list = array();
-    $i = 0;
-    /*while($data = $query->fetch()){
-        $list[$i]['code'] = $data['code'];
-        $list[$i]['nom'] = $data['nom'];
-        $list[$i]['element'] = $data['element'];
-        $list[$i]['yin'] = $data['yin'];
-        $i++;
-    }*/
+    
+    try
+    {
+        $dbh = new PDO('mysql:host='.$servername.';dbname='.$dbname.'', $username, $password);
+        $dbh->beginTransaction();
 
-    $data = 'toto';
+        $query = "SELECT * FROM meridien";
+
+        $dbh->query($query);
+
+        $i = 0;
+        foreach ($dbh->query($query) as $row)
+        {
+            $list[$i]['code'] = $row['code'];
+            $list[$i]['nom'] = $row['nom'];
+            $list[$i]['element'] = $row['element'];
+            $list[$i]['yin'] = $row['yin'];
+            $i++;
+        }
+    }
+    catch (Exception $e)
+    {
+        echo "Unable to connect: " . $e->getMessage() ."<p>";
+    }
 
     // https://stackoverflow.com/questions/14917599/best-way-to-use-multiple-pages-on-smarty?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
     if(empty($_GET["page"])) {
@@ -51,58 +55,5 @@
         }
     }
     $smarty->assign('list', $list);
-    $smarty->assign('data', $data);
-    //$smarty->display("src/app/pages/home/home.html");
     $smarty->display($template);
-
-    /*class Router {
-
-        private $url;
-        private $routes = [];
-        private $namedRoutes = [];
-
-        public function __construct($url){
-            $this->url = $url;
-        }
-
-        public function get($path, $callable, $name = null){
-            return $this->add($path, $callable, $name, 'GET');
-        }
-
-        public function post($path, $callable, $name = null){
-            return $this->add($path, $callable, $name, 'POST');
-        }
-
-        private function add($path, $callable, $name, $method){
-            $route = new Route($path, $callable);
-            $this->routes[$method][] = $route;
-            if(is_string($callable) && $name === null){
-                $name = $callable;
-            }
-            if($name){
-                $this->namedRoutes[$name] = $route;
-            }
-            return $route;
-        }
-
-        public function run(){
-            if(!isset($this->routes[$_SERVER['REQUEST_METHOD']])){
-                throw new RouterException('REQUEST_METHOD does not exist');
-            }
-            foreach($this->routes[$_SERVER['REQUEST_METHOD']] as $route){
-                if($route->match($this->url)){
-                    return $route->call();
-                }
-            }
-            throw new RouterException('No matching routes');
-        }
-
-        public function url($name, $params = []){
-            if(!isset($this->namedRoutes[$name])){
-                throw new RouterException('No route matches this name');
-            }
-            return $this->namedRoutes[$name]->getUrl($params);
-        }
-
-    }*/
 ?>

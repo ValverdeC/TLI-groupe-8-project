@@ -82,13 +82,16 @@
             </form>
         </div>
 
-        {foreach from=$list item=item}
-            {$item.code}
-        {/foreach}
-
-        {$data}
-
-        {$smarty.server.SERVER_NAME}
+        <table>
+            {foreach from=$list item=item}
+                <tr>
+                    <td>{$item.code}</td>
+                    <td>{$item.nom}</td>
+                    <td>{$item.element}</td>
+                    <td>{$item.yin}</td>
+                </tr>
+            {/foreach}
+        </table>
 
 
         <!-- Optional JavaScript -->
