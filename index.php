@@ -5,17 +5,9 @@
     require_once './Parametres/Fonctions_BDD.php'; // Fonctions de requetes SQL
     $smarty = new Smarty();
 
-
-    $servername = "172.17.0.3";
-    $username = "acu_www_RW";
-    $password = "kDMcbcUDi6rEqzBY";
-    $dbname = "acu";
-
     $conn1=Connexion_BDD();
         $result = Afficher_Meridien($conn1)->fetchAll();
     Deconnexion_BDD($conn1);
-
-
 
     // https://stackoverflow.com/questions/14917599/best-way-to-use-multiple-pages-on-smarty?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
     $headerBar = "src/app/pages/header-bar/header-bar.html";
