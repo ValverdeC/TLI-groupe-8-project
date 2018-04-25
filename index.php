@@ -1,12 +1,12 @@
 <?php
 
-    require("smarty/smarty.class.php"); // On inclut la classe Smarty
+    require("smarty/Smarty.class.php"); // On inclut la classe Smarty
     $smarty = new Smarty();
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "admin";
-    $dbname = "acuponcture";
+    $servername = "172.17.0.3";
+    $username = "acu_www_RW";
+    $password = "kDMcbcUDi6rEqzBY";
+    $dbname = "acu";
 
     $list = array();
     
