@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-04-25 07:52:13
+/* Smarty version 3.1.30, created on 2018-04-25 07:55:47
   from "C:\wamp64\www\acuponture\src\app\pages\header-bar\header-bar.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5ae033ad041151_62996105',
+  'unifunc' => 'content_5ae0348336e1a4_84661469',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9178373e1515dcda9d11575a53729bd8cce19eea' => 
     array (
       0 => 'C:\\wamp64\\www\\acuponture\\src\\app\\pages\\header-bar\\header-bar.html',
-      1 => 1524642725,
+      1 => 1524642943,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ae033ad041151_62996105 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ae0348336e1a4_84661469 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!doctype html>
 <html lang="fr">
@@ -39,16 +39,14 @@ function content_5ae033ad041151_62996105 (Smarty_Internal_Template $_smarty_tpl)
         <title>Projet TLI</title>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">            
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="index.php?page=home">Home<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.php?page=symptoms">Symptômes<span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
             </div>

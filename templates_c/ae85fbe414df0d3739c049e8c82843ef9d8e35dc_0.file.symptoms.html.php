@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-04-25 07:52:35
+/* Smarty version 3.1.30, created on 2018-04-25 08:00:35
   from "C:\wamp64\www\acuponture\src\app\pages\symptoms\symptoms.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5ae033c3b0b124_88205872',
+  'unifunc' => 'content_5ae035a35f7921_99455481',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ae85fbe414df0d3739c049e8c82843ef9d8e35dc' => 
     array (
       0 => 'C:\\wamp64\\www\\acuponture\\src\\app\\pages\\symptoms\\symptoms.html',
-      1 => 1524642688,
+      1 => 1524643230,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ae033c3b0b124_88205872 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ae035a35f7921_99455481 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div class="container-fluid content">
     <h1>Symptômes</h1>
@@ -29,7 +29,7 @@ function content_5ae033c3b0b124_88205872 (Smarty_Internal_Template $_smarty_tpl)
             <div class="card-header" id="headingOne">
                 <h5 class="mb-0">
                     <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Collapsible Group Item #1
+                        Pathologies de méridien
                     </button>
                 </h5>
             </div>
@@ -43,7 +43,7 @@ function content_5ae033c3b0b124_88205872 (Smarty_Internal_Template $_smarty_tpl)
             <div class="card-header" id="headingTwo">
                 <h5 class="mb-0">
                     <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Collapsible Group Item #2
+                        Pathologies d’organe/viscère (tsang/fu)
                     </button>
                 </h5>
             </div>
@@ -57,7 +57,7 @@ function content_5ae033c3b0b124_88205872 (Smarty_Internal_Template $_smarty_tpl)
             <div class="card-header" id="headingThree">
                 <h5 class="mb-0">
                     <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        Collapsible Group Item #3
+                        Pathologies des tendino-musculaires (jing jin)
                     </button>
                 </h5>
             </div>
@@ -71,7 +71,7 @@ function content_5ae033c3b0b124_88205872 (Smarty_Internal_Template $_smarty_tpl)
             <div class="card-header" id="headingFour">
                 <h5 class="mb-0">
                     <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
-                        Collapsible Group Item #4
+                        Pathologie des branches (voies luo)
                     </button>
                 </h5>
             </div>
@@ -85,7 +85,7 @@ function content_5ae033c3b0b124_88205872 (Smarty_Internal_Template $_smarty_tpl)
             <div class="card-header" id="headingFive">
                 <h5 class="mb-0">
                     <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
-                        Collapsible Group Item #5
+                        Pathologies des merveilleux vaisseaux
                     </button>
                 </h5>
             </div>
