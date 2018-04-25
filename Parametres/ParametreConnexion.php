@@ -1,9 +1,8 @@
 <?php 
-	$user="locamoto";
-	$mdp="azerty74";
-	$bddname="locamoto";
-	$host="localhost";
-	$port="5432";
-	$dsn='mysql:host='.$host.';dbname='.$bddname.';port='.$port;
+	$user="acu_www_RW";
+	$mdp="kDMcbcUDi6rEqzBY";
+	$bddname="acu";
+	$host="172.17.0.3";
+	$dsn='mysql:host='.$host.';dbname='.$bddname.;
 	
 ?>
