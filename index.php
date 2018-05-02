@@ -23,10 +23,10 @@
             $result = Afficher_Meridien($conn1)->fetchAll();
             $smarty->assign('list', $result);
             break;
-            case "symptoms":
-            $template="src/app/pages/symptoms/symptoms.html";
-            $result = getSymptoms($conn1)->fetchAll();
-            $smarty->assign('symptoms', $result);
+            case "pathologies":
+            $template="src/app/pages/pathologies/pathologies.html";
+            $result = getPathologies($conn1)->fetchAll();
+            $smarty->assign('pathologies', $result);
             break;
             default:
             $template="404.tpl";

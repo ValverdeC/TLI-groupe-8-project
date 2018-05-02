@@ -11,13 +11,8 @@
 		return $result;
 	}
 
-	function getSymptoms($connex){
-		$sql=
-		"	SELECT type, patho.desc as symptom from patho
-			LEFT JOIN symptpatho ON symptpatho.idP = patho.idP
-			LEFT JOIN symptome ON symptpatho.idS = symptome.idS
-			ORDER BY type
-		";
+	function getPathologies($connex){
+		$sql="SELECT mer as meridien, type, patho.desc as pathologie from patho";
 		$result=$connex->query($sql);
 		return $result;
 	}

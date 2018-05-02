@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-05-02 13:16:07
+/* Smarty version 3.1.30, created on 2018-05-02 13:53:25
   from "C:\wamp64\www\acuponture\src\app\pages\symptoms\symptoms.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5ae9ba17803511_84506017',
+  'unifunc' => 'content_5ae9c2d5818c71_82883187',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ae85fbe414df0d3739c049e8c82843ef9d8e35dc' => 
     array (
       0 => 'C:\\wamp64\\www\\acuponture\\src\\app\\pages\\symptoms\\symptoms.html',
-      1 => 1525266964,
+      1 => 1525269201,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ae9ba17803511_84506017 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ae9c2d5818c71_82883187 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div class="container-fluid content">
     <h1>Symptômes</h1>
@@ -33,7 +33,7 @@ function content_5ae9ba17803511_84506017 (Smarty_Internal_Template $_smarty_tpl)
                     </button>
                 </h5>
             </div>
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                 <div class="card-body">
                     <table>
                         <?php
