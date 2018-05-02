@@ -17,4 +17,11 @@
 		return $result;
 	}
 
+	function Ajouter_Membre($connex, $nom, $prenom, $email, $pass){
+		$pass_hache = password_hash($_POST['pass'], PASSWORD_DEFAULT);
+
+		$sql = "INSERT INTO membre(nom, prenom, email, pass_hache) VALUES ('".$nom."','".$prenom."','".$email."','".$pass_hache."')";
+		$result=$connex->$query($sql);
+		return $result;
+	}
 ?>
