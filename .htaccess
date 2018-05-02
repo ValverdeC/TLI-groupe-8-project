@@ -3,6 +3,5 @@ RewriteEngine on
 #RewriteRule ^(src/.+)/$ /$1
 RewriteRule ^.*.(gif|png|jpg|css|wav|avi|mpg)$ - [NC,L]
 RewriteRule ^([a-zA-Z0-9\-&]+)$ index.php?page=$1 [L]
-RewriteRule ^(.+)/$ /index.php?page=$1
 #RewriteRule ^(src/.+)/$ /src/$1
 RewriteRule ^(.+)/(.+)$ /index.php?resource=$1&id=$2
