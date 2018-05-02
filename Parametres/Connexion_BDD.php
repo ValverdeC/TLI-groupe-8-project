@@ -3,11 +3,11 @@
 		include 'ParametreConnexion.php';
 		try {
 			$connex = new PDO($dsn, $user, $mdp); // tentative de connexion
-			// print('Connect� :D');
+			// print('Connecté :D');
 	
 		} catch (PDOException $e) {
-			print "Erreur de connexion � la base de donn�es ! : " . $e->getMessage();
-			die(); // Arr�t du script - sortie.
+			print "Erreur de connexion à la base de données ! : " . $e->getMessage();
+			die(); // Arret du script - sortie.
 		}
 		return $connex;
 	}
