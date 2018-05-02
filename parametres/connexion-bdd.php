@@ -1,6 +1,6 @@
 <?php 
 	function Connexion_BDD(){
-		include 'ParametreConnexion.php';
+		include 'parametre-connexion.php';
 		try {
 			$connex = new PDO($dsn, $user, $mdp); // tentative de connexion
 			// print('Connecté :D');

@@ -1,8 +1,8 @@
 <?php
 
     require("smarty/Smarty.class.php"); // On inclut la classe Smarty
-    require_once './Parametres/Connexion_BDD.php'; // Fonction de connexion à la BDD
-    require_once './Parametres/Fonctions_BDD.php'; // Fonctions de requetes SQL
+    require_once './parametres/connexion-bdd.php'; // Fonction de connexion à la BDD
+    require_once './parametres/fonctions-bdd.php'; // Fonctions de requetes SQL
     $smarty = new Smarty();
 
     $conn1=Connexion_BDD();
