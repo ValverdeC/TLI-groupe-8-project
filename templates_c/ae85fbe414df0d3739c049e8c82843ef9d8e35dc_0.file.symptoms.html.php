@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-04-25 08:00:35
+/* Smarty version 3.1.30, created on 2018-05-02 13:16:07
   from "C:\wamp64\www\acuponture\src\app\pages\symptoms\symptoms.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5ae035a35f7921_99455481',
+  'unifunc' => 'content_5ae9ba17803511_84506017',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ae85fbe414df0d3739c049e8c82843ef9d8e35dc' => 
     array (
       0 => 'C:\\wamp64\\www\\acuponture\\src\\app\\pages\\symptoms\\symptoms.html',
-      1 => 1524643230,
+      1 => 1525266964,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ae035a35f7921_99455481 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ae9ba17803511_84506017 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div class="container-fluid content">
     <h1>Symptômes</h1>
@@ -28,14 +28,32 @@ function content_5ae035a35f7921_99455481 (Smarty_Internal_Template $_smarty_tpl)
         <div class="card">
             <div class="card-header" id="headingOne">
                 <h5 class="mb-0">
-                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                         Pathologies de méridien
                     </button>
                 </h5>
             </div>
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                 <div class="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    <table>
+                        <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['symptoms']->value, 'item');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['item']->value) {
+?>
+                            <?php if ($_smarty_tpl->tpl_vars['item']->value['type'] == 'me' || $_smarty_tpl->tpl_vars['item']->value['type'] == 'mi') {?>
+                                <tr>
+                                    <td><?php echo $_smarty_tpl->tpl_vars['item']->value['symptom'];?>
+</td>
+                                </tr>
+                            <?php }?>
+                        <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
+?>
+
+                    </table>
                 </div>
             </div>
         </div>
@@ -49,7 +67,28 @@ function content_5ae035a35f7921_99455481 (Smarty_Internal_Template $_smarty_tpl)
             </div>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                 <div class="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    <table>
+                        <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['symptoms']->value, 'item');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['item']->value) {
+?>
+                            <?php ob_start();
+echo substr($_smarty_tpl->tpl_vars['item']->value['type'],0,2);
+$_prefixVariable1=ob_get_clean();
+if ($_prefixVariable1 == 'tf') {?>
+                                <tr>
+                                    <td><?php echo $_smarty_tpl->tpl_vars['item']->value['symptom'];?>
+</td>
+                                </tr>
+                            <?php }?>
+                        <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
+?>
+
+                    </table>
                 </div>
             </div>
         </div>
@@ -63,7 +102,25 @@ function content_5ae035a35f7921_99455481 (Smarty_Internal_Template $_smarty_tpl)
             </div>
             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                 <div class="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    <table>
+                        <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['symptoms']->value, 'item');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['item']->value) {
+?>
+                            <?php if ($_smarty_tpl->tpl_vars['item']->value['type'] == 'j') {?>
+                                <tr>
+                                    <td><?php echo $_smarty_tpl->tpl_vars['item']->value['symptom'];?>
+</td>
+                                </tr>
+                            <?php }?>
+                        <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
+?>
+
+                    </table>
                 </div>
             </div>
         </div>
@@ -77,7 +134,28 @@ function content_5ae035a35f7921_99455481 (Smarty_Internal_Template $_smarty_tpl)
             </div>
             <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
                 <div class="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    <table>
+                        <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['symptoms']->value, 'item');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['item']->value) {
+?>
+                            <?php ob_start();
+echo substr($_smarty_tpl->tpl_vars['item']->value['type'],0,1);
+$_prefixVariable2=ob_get_clean();
+if ($_prefixVariable2 == 'l') {?>
+                                <tr>
+                                    <td><?php echo $_smarty_tpl->tpl_vars['item']->value['symptom'];?>
+</td>
+                                </tr>
+                            <?php }?>
+                        <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
+?>
+
+                    </table>
                 </div>
             </div>
         </div>
@@ -91,7 +169,28 @@ function content_5ae035a35f7921_99455481 (Smarty_Internal_Template $_smarty_tpl)
             </div>
             <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
                 <div class="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    <table>
+                        <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['symptoms']->value, 'item');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['item']->value) {
+?>
+                            <?php ob_start();
+echo substr($_smarty_tpl->tpl_vars['item']->value['type'],0,2);
+$_prefixVariable3=ob_get_clean();
+if ($_prefixVariable3 == 'mv') {?>
+                                <tr>
+                                    <td><?php echo $_smarty_tpl->tpl_vars['item']->value['symptom'];?>
+</td>
+                                </tr>
+                            <?php }?>
+                        <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
+?>
+
+                    </table>
                 </div>
             </div>
         </div>

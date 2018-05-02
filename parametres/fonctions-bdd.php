@@ -11,4 +11,15 @@
 		return $result;
 	}
 
+	function getSymptoms($connex){
+		$sql=
+		"	SELECT type, patho.desc as symptom from patho
+			LEFT JOIN symptpatho ON symptpatho.idP = patho.idP
+			LEFT JOIN symptome ON symptpatho.idS = symptome.idS
+			ORDER BY type
+		";
+		$result=$connex->query($sql);
+		return $result;
+	}
+
 ?>
