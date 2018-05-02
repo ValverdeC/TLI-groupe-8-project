@@ -51,9 +51,46 @@
                             <button type="submit" class="btn btn-primary">Sign in</button>
                         </form>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">New around here? Sign up</a>
+                        <a class="dropdown-item" data-toggle="modal" data-target="#modalInscription">New around here? Sign up</a>
                         <a class="dropdown-item" href="#">Forgot password?</a>
                     </div>
                 </div>
             </div>
+            <div class="modal fade" id="modalInscription" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Inscription</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form>
+                        <div class="form-group">
+                          <label for="nom" class="col-form-label">Nom</label>
+                          <input type="text" class="form-control" id="name" placeholder="Nom">
+                        </div>
+                        <div class="form-group">
+                            <label for="prenom" class="col-form-label">Prénom</label>
+                            <input type="text" class="form-control" id="surname" placeholder="Prénom">
+                          </div>
+                        <div class="form-group">
+                          <label for="email" class="col-form-label">Adresse Mail</label>
+                          <input type="text" class="form-control" id="mail" placeholder="email@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="pass" class="col-form-label">Mot de passe</label>
+                            <input type="text" class="form-control" id="password" placeholder="Password">
+                          </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                      <button type="button" class="btn btn-primary">Créer</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
         </nav>
+    </body>
