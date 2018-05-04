@@ -23,6 +23,9 @@
             $result = Afficher_Meridien($conn1)->fetchAll();
             $smarty->assign('list', $result);
             break;
+			case "search":
+            $template="src/app/pages/search/search.html";
+            break;
             case "pathologies":
             $template="src/app/pages/pathologies/pathologies.html";
             $result = getPathologies($conn1)->fetchAll();

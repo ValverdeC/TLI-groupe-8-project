@@ -16,5 +16,11 @@
 		$result=$connex->query($sql);
 		return $result;
 	}
+	
+	function search()
+		$sql="SELECT symptome.desc FROM `symptome`
+inner join keySympt on keySympt.idS = symptome.idS
+INNER JOIN keywords on keywords.idK = keySympt.idK
+WHERE keywords.name = 'aine'"
 
 ?>
