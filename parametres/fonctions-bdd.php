@@ -10,11 +10,4 @@
 		$result=$connex->query($sql);
 		return $result;
 	}
-
-	function getPathologies($connex){
-		$sql="SELECT mer as meridien, type, patho.desc as pathologie from patho";
-		$result=$connex->query($sql);
-		return $result;
-	}
-
 ?>

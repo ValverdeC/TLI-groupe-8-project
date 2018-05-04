@@ -3,3 +3,12 @@
     flex-direction: column;
     padding: 20px;
 }
+
+.patho-table {
+    width: 100%;
+}
+
+.last-cell-button {
+    display: flex;
+    margin-left: auto;
+}

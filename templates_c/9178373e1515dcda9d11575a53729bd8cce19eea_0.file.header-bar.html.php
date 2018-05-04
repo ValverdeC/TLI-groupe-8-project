@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-05-02 14:23:06
+/* Smarty version 3.1.30, created on 2018-05-04 12:55:44
   from "C:\wamp64\www\acuponture\src\app\pages\header-bar\header-bar.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5ae9c9ca8d3994_73623341',
+  'unifunc' => 'content_5aec58505a9680_07389200',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9178373e1515dcda9d11575a53729bd8cce19eea' => 
     array (
       0 => 'C:\\wamp64\\www\\acuponture\\src\\app\\pages\\header-bar\\header-bar.html',
-      1 => 1525270982,
+      1 => 1525438506,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ae9c9ca8d3994_73623341 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5aec58505a9680_07389200 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!doctype html>
 <html lang="fr">
@@ -35,6 +35,7 @@ function content_5ae9c9ca8d3994_73623341 (Smarty_Internal_Template $_smarty_tpl)
         <link rel="stylesheet" href="src/app/pages/header-bar/header-bar.css">
         <link rel="stylesheet" href="src/app/pages/home/home.css">
         <link rel="stylesheet" href="src/app/pages/pathologies/pathologies.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
         <title>Projet TLI</title>
     </head>

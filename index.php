@@ -3,6 +3,7 @@
     require("smarty/Smarty.class.php"); // On inclut la classe Smarty
     require_once './parametres/connexion-bdd.php'; // Fonction de connexion à la BDD
     require_once './parametres/fonctions-bdd.php'; // Fonctions de requetes SQL
+    require_once 'src/app/controllers/pathology-controller.php'; // Fonctions de requetes SQL
     $smarty = new Smarty();
 
     $conn1=Connexion_BDD();
@@ -19,18 +20,23 @@
         $page = $_GET["page"];
         switch ($page) {
             case "home":
-            $template="src/app/pages/home/home.html";
-            $result = Afficher_Meridien($conn1)->fetchAll();
-            $smarty->assign('list', $result);
-            break;
+                $template="src/app/pages/home/home.html";
+                $result = Afficher_Meridien($conn1)->fetchAll();
+                $smarty->assign('list', $result);
+                break;
             case "pathologies":
-            $template="src/app/pages/pathologies/pathologies.html";
-            $result = getPathologies($conn1)->fetchAll();
-            $smarty->assign('pathologies', $result);
-            break;
+                $template="src/app/pages/pathologies/pathologies.html";
+
+                $PathoController = new PathoController();
+                $allPatho = $PathoController->getAllPatho($conn1);
+
+                $smarty->assign(array(
+                    'pathologies' => $allPatho
+                ));
+                break;
             default:
-            $template="404.tpl";
-            break;
+                $template="404.tpl";
+                break;
         }
     }
     $smarty->display($template);
