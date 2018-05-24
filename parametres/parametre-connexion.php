@@ -9,5 +9,5 @@
 	$mdp="admin";
 	$bddname="acuponcture";
 	$host="localhost";
-	$dsn='mysql:host='.$host.';dbname='.$bddname;
+	$dsn='mysql:host='.$host.';dbname='.$bddname.';charset=utf8';
 ?>

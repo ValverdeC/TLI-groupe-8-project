@@ -11,42 +11,7 @@
             </div>
             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                 <div class="card-body">
-                    <table class="patho-table">
-                        <tr>
-                            <th>Méridien</th>
-                            <th>Type</th>
-                            <th>Description</th>
-                        </tr>
-                        {foreach from=$pathologies item=item}
-                            {if $item->getType() == 'me' || $item->getType() == 'mi'}
-                                <tr>
-                                    <td>{$item->getMer()}</td>
-                                    <td>{$item->getType()}</td>
-                                    <td>{$item->getDesc()}</td>
-                                    <td>
-                                        <button class="btn btn-primary last-cell-button" type="button" data-toggle="collapse" data-target="#{$item->getId()}" aria-expanded="false" aria-controls="collapseExample">
-                                            <i class="material-icons">keyboard_arrow_down</i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="4">
-                                        <div class="collapse" id="{$item->getId()}">
-                                            <div class="card card-body">
-                                                {foreach from=$item->getSymptoms() item=symptoms}
-                                                    <table>
-                                                        <tr>
-                                                            <td>{$symptoms->getDesc()}</td>
-                                                        </tr>
-                                                    </table>
-                                                {/foreach}
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            {/if}
-                        {/foreach}
-                    </table>
+                    
                 </div>
             </div>
         </div>
@@ -60,36 +25,7 @@
             </div>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                 <div class="card-body">
-                    <table class="patho-table">
-                        <tr>
-                            <th>Méridien</th>
-                            <th>Type</th>
-                            <th>Description</th>
-                        </tr>
-                        {foreach from=$pathologies item=item}
-                            {if {$item->getType()|substr:0:2} == 'tf'}
-                                <tr>
-                                    <td>{$item->getMer()}</td>
-                                    <td>{$item->getType()}</td>
-                                    <td>{$item->getDesc()}</td>
-                                    <td>
-                                        <button class="btn btn-primary last-cell-button" type="button" data-toggle="collapse" data-target="#{$item->getId()}" aria-expanded="false" aria-controls="collapseExample">
-                                            <i class="material-icons">keyboard_arrow_down</i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="4">
-                                        <div class="collapse" id="{$item->getId()}">
-                                            <div class="card card-body">
-                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            {/if}
-                        {/foreach}
-                    </table>
+                    
                 </div>
             </div>
         </div>
@@ -103,36 +39,7 @@
             </div>
             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                 <div class="card-body">
-                    <table class="patho-table">
-                        <tr>
-                            <th>Méridien</th>
-                            <th>Type</th>
-                            <th>Description</th>
-                        </tr>
-                        {foreach from=$pathologies item=item}
-                            {if $item->getType() == 'j'}
-                                <tr>
-                                    <td>{$item->getMer()}</td>
-                                    <td>{$item->getType()}</td>
-                                    <td>{$item->getDesc()}</td>
-                                    <td>
-                                        <button class="btn btn-primary last-cell-button" type="button" data-toggle="collapse" data-target="#{$item->getId()}" aria-expanded="false" aria-controls="collapseExample">
-                                            <i class="material-icons">keyboard_arrow_down</i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="4">
-                                        <div class="collapse" id="{$item->getId()}">
-                                            <div class="card card-body">
-                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            {/if}
-                        {/foreach}
-                    </table>
+                    
                 </div>
             </div>
         </div>
@@ -146,36 +53,7 @@
             </div>
             <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
                 <div class="card-body">
-                    <table class="patho-table">
-                        <tr>
-                            <th>Méridien</th>
-                            <th>Type</th>
-                            <th>Description</th>
-                        </tr>
-                        {foreach from=$pathologies item=item}
-                            {if {$item->getType()|substr:0:1} == 'l'}
-                                <tr>
-                                    <td>{$item->getMer()}</td>
-                                    <td>{$item->getType()}</td>
-                                    <td>{$item->getDesc()}</td>
-                                    <td>
-                                        <button class="btn btn-primary last-cell-button" type="button" data-toggle="collapse" data-target="#{$item->getId()}" aria-expanded="false" aria-controls="collapseExample">
-                                            <i class="material-icons">keyboard_arrow_down</i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="4">
-                                        <div class="collapse" id="{$item->getId()}">
-                                            <div class="card card-body">
-                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            {/if}
-                        {/foreach}
-                    </table>
+                    
                 </div>
             </div>
         </div>
@@ -189,36 +67,7 @@
             </div>
             <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
                 <div class="card-body">
-                    <table class="patho-table">
-                        <tr>
-                            <th>Méridien</th>
-                            <th>Type</th>
-                            <th>Description</th>
-                        </tr>
-                        {foreach from=$pathologies item=item}
-                            {if {$item->getType()|substr:0:2} == 'mv'}
-                                <tr>
-                                    <td>{$item->getMer()}</td>
-                                    <td>{$item->getType()}</td>
-                                    <td>{$item->getDesc()}</td>
-                                    <td>
-                                        <button class="btn btn-primary last-cell-button" type="button" data-toggle="collapse" data-target="#{$item->getId()}" aria-expanded="false" aria-controls="collapseExample">
-                                            <i class="material-icons">keyboard_arrow_down</i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="4">
-                                        <div class="collapse" id="{$item->getId()}">
-                                            <div class="card card-body">
-                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            {/if}
-                        {/foreach}
-                    </table>
+                    
                 </div>
             </div>
         </div>

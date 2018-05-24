@@ -9,18 +9,17 @@
     $conn1=Connexion_BDD();
         
     // https://stackoverflow.com/questions/14917599/best-way-to-use-multiple-pages-on-smarty?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
-    $headerBar = "src/app/pages/header-bar/header-bar.html";
-    $footer = "src/app/pages/footer/footer.html";
-    $smarty->display($headerBar);
+    $headerBar = "src/app/pages/header-bar/header-bar.tpl";
+    $footer = "src/app/pages/footer/footer.tpl";
     if(empty($_GET["page"])) {
-        $template="src/app/pages/home/home.html";
+        $template="src/app/pages/home/home.tpl";
         $result = Afficher_Meridien($conn1)->fetchAll();
         $smarty->assign('list', $result);
     }else {
         $page = $_GET["page"];
         switch ($page) {
             case "home":
-                $template="src/app/pages/home/home.html";
+                $template="src/app/pages/home/home.tpl";
                 $result = Afficher_Meridien($conn1)->fetchAll();
                 $smarty->assign('list', $result);
                 break;
@@ -34,11 +33,46 @@
                     'pathologies' => $allPatho
                 ));
                 break;
+            case "pathoList":
+                $template="src/app/pages/pathologies/table/patho-list-table.html";
+
+                if (isset($_GET["type"])) {
+                    $type = $_GET["type"];
+
+                    $PathoController = new PathoController();
+                    $allPatho = $PathoController->getPathoByType($conn1, $type);
+
+                    $smarty->assign(array(
+                        'pathologies' => $allPatho
+                    ));
+                }
+
+                echo $smarty->fetch($template);
+                die();
+                break;
+            case "symptomsList":
+                $template="src/app/pages/pathologies/table/symptoms-list-table.html";
+
+                if (isset($_GET["idPatho"])) {
+                    $idPatho = $_GET["idPatho"];
+
+                    $PathoController = new PathoController();
+                    $allSymptoms = $PathoController->getAllSymptomsByPathoId($conn1, $idPatho);
+
+                    $smarty->assign(array(
+                        'symptoms' => $allSymptoms
+                    ));
+                }
+
+                echo $smarty->fetch($template);
+                die();
+                break;
             default:
                 $template="404.tpl";
                 break;
         }
     }
+    $smarty->display($headerBar);
     $smarty->display($template);
     $smarty->display($footer);
 
