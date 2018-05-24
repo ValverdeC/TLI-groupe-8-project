@@ -25,13 +25,6 @@
                 break;
             case "pathologies":
                 $template="src/app/pages/pathologies/pathologies.html";
-
-                $PathoController = new PathoController();
-                $allPatho = $PathoController->getAllPatho($conn1);
-
-                $smarty->assign(array(
-                    'pathologies' => $allPatho
-                ));
                 break;
             case "pathoList":
                 $template="src/app/pages/pathologies/table/patho-list-table.html";
@@ -41,6 +34,13 @@
 
                     $PathoController = new PathoController();
                     $allPatho = $PathoController->getPathoByType($conn1, $type);
+
+                    $smarty->assign(array(
+                        'pathologies' => $allPatho
+                    ));
+                } else {
+                    $PathoController = new PathoController();
+                    $allPatho = $PathoController->getAllPatho($conn1);
 
                     $smarty->assign(array(
                         'pathologies' => $allPatho
@@ -67,8 +67,26 @@
                 echo $smarty->fetch($template);
                 die();
                 break;
+            case "pathologiesAll":
+                $template="src/app/pages/pathologies/pathologies-all.html";
+                echo $smarty->fetch($template);
+                die();
+                break;
+            case "pathologiesFiltered":
+                $template="src/app/pages/pathologies/pathologies-filtered.html";
+
+                $PathoController = new PathoController();
+                $allTypes = $PathoController->getAllPathoTypes($conn1);
+                $allMeridien = $PathoController->getAllMeridien($conn1);
+
+                $smarty->assign('types', $allTypes);
+                $smarty->assign('meridiens', $allMeridien);
+                
+                echo $smarty->fetch($template);
+                die();
+                break;
             default:
-                $template="404.tpl";
+                $template="src/app/pages/404.tpl";
                 break;
         }
     }

@@ -1,59 +1,134 @@
+$(document).ready(function() {
+    $.get('pathologiesAll', function(data) {
+        $('#content').html(data);
+    });
+})
 
-$('#collapseOne').on('show.bs.collapse', function(e) {
-    if (e.target.id == "collapseOne") {
-        $.get('?page=pathoList&type[]=me&type[]=mi', function(data) {
-            e.target.innerHTML = data;
-        });
-    } else {
-        getSymptoms(e);
-    }
+$("#allPathoBtn").click(function(e) {
+    $.get('pathologiesAll', function(data) {
+        $('#content').html(data);
+    });
+    document.getElementById("filteredPathoBtn").classList.remove('active');
+    document.getElementById("allPathoBtn").classList.add('active');
 });
 
-$('#collapseTwo').on('show.bs.collapse', function(e) {
-    if (e.target.id == "collapseTwo") {
-        $.get('?page=pathoList&type[]=tf', function(data) {
-            e.target.innerHTML = data;
-        });
-    } else {
-        getSymptoms(e);
-    }
+$("#filteredPathoBtn").click(function() {
+    $.get('pathologiesFiltered', function(data) {
+        $('#content').html(data);
+    });
+    $.get('pathoList', function(data) {
+        $('#pathos').html(data);
+    });
+    document.getElementById("allPathoBtn").classList.remove('active');
+    document.getElementById("filteredPathoBtn").classList.add('active');
 });
 
-$('#collapseThree').on('show.bs.collapse', function(e) {
-    if (e.target.id == "collapseThree") {
-        $.get('?page=pathoList&type[]=j', function(data) {
-            e.target.innerHTML = data;
-        });
-    } else {
-        getSymptoms(e);
-    }
-});
+$('#content').on('show.bs.collapse', function(e) {
+    switch(e.target.id) {
+        case "collapseOne":
+            $.get('pathoList?type[]=me&type[]=mi', function(data) {
+                e.target.innerHTML = data;
+            });
+            break;
 
-$('#collapseFour').on('show.bs.collapse', function(e) {
-    if (e.target.id == "collapseFour") {
-        $.get('?page=pathoList&type[]=l', function(data) {
-            e.target.innerHTML = data;
-        });
-    } else {
-        getSymptoms(e);
-    }
-});
+        case "collapseTwo":
+            $.get('pathoList?type[]=tf', function(data) {
+                e.target.innerHTML = data;
+            });
+            break;
 
-$('#collapseFive').on('show.bs.collapse', function(e) {
-    if (e.target.id == "collapseFive") {
-        $.get('?page=pathoList&type[]=mv', function(data) {
-            e.target.innerHTML = data;
-        });
-    } else {
-        getSymptoms(e);
+        case "collapseThree":
+            $.get('pathoList?type[]=j', function(data) {
+                e.target.innerHTML = data;
+            });
+            break;
+
+        case "collapseFour":
+            $.get('pathoList?type[]=l', function(data) {
+                e.target.innerHTML = data;
+            });
+            break;
+        
+        case "collapseFive":
+            $.get('pathoList?type[]=mv', function(data) {
+                e.target.innerHTML = data;
+            });
+            break;
+
+        default:
+            getSymptoms(e);
+            break;
     }
 });
 
 function getSymptoms($e) {
     $idPatho = $e.target.id;
-    $url = '?page=symptomsList&idPatho=' + $idPatho;
+    $url = 'symptomsList?idPatho=' + $idPatho;
     console.log($url);
     $.get($url, function(data) {
         $e.target.innerHTML = data;
     });
+}
+
+function filterByType() {
+    var typeSelected = document.getElementById("typeSelector").value;
+
+    var infos = document.getElementsByClassName("infos");
+
+    if (typeSelected != -1) {
+        for(i = 0; i < infos.length; i++) {
+            var type = infos[i].getElementsByClassName("typeColumn");
+            if (type[0].innerHTML != typeSelected) {
+                infos[i].style.display = "none";
+            } else {
+                if (infos[i].style.display != "none") {
+                    infos[i].style.display = "";
+                }
+            }
+        }
+    } else {
+        for(i = 0; i < infos.length; i++) {
+            infos[i].style.display = "";
+        }
+    }
+}
+
+function filterByMeridienCode() {
+    var meridienCodeSelector = document.getElementById("meridienCodeSelector").value;
+
+    var infos = document.getElementsByClassName("infos");
+
+    if (meridienCodeSelector != -1) {
+        for(i = 0; i < infos.length; i++) {
+            var type = infos[i].getElementsByClassName("meridienCodeColumn");
+            if (type[0].innerHTML != meridienCodeSelector) {
+                infos[i].style.display = "none";
+            } else {
+                if (infos[i].style.display != "none") {
+                    infos[i].style.display = "";
+                }
+            }
+        }
+    } else {
+        for(i = 0; i < infos.length; i++) {
+            infos[i].style.display = "";
+        }
+    }
+}
+
+function filter() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+
+        }
+    }
 }

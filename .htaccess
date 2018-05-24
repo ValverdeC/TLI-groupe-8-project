@@ -1,9 +1,14 @@
+Options +FollowSymlinks
 RewriteEngine on
+
 #ErrorDocument 404 /404.php
 #RewriteRule ^(src/.+)/$ /$1
 #RewriteRule ^.*.(gif|png|jpg|css|wav|avi|mpg)$ - [NC,L]
 #RewriteRule ^(src/.+)/$ /src/$1
 #RewriteRule ^(.+)/(.+)$ /index.php?resource=$1&id=$2
-RewriteRule ^([a-zA-Z0-9\-&]+)$ index.php?page=$1 [L]
 #RewriteBase /acuponture
 #RewriteRule ^(.+)$ /index.php?page=$1 [L]
+
+#RewriteRule ^([a-zA-Z0-9\-&]+)$ index.php?page=$1 [NE,L]
+
+RewriteRule ^([a-zA-Z0-9_.-]+)$ index.php?page=$1 [NE,QSA,L] 

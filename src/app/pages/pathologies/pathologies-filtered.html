@@ -1,0 +1,17 @@
+<form class="filterForm">
+    <select id="typeSelector" class="custom-select" onchange="filterByType()">
+        <option selected value="-1">Type</option>
+        {foreach from=$types item=item}
+            <option value="{$item.type}">{$item.type}</option>
+        {/foreach}
+    </select>
+    <select id="meridienCodeSelector" class="custom-select" onchange="filterByMeridienCode()">
+        <option selected value="-1">Méridien</option>
+        {foreach from=$meridiens item=item}
+            <option value="{$item.code}">{$item.code}</option>
+        {/foreach}
+    </select>
+</form>
+<div id="pathos">
+    
+</div>

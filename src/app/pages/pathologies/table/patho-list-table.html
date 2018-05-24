@@ -1,16 +1,16 @@
-<table class="patho-table">
+<table id="patho-table" class="patho-table">
     <tr>
         <th>Méridien</th>
         <th>Type</th>
         <th>Description</th>
     </tr>
     {foreach from=$pathologies item=item}
-            <tr>
-                <td>{$item->getMer()}</td>
-                <td>{$item->getType()}</td>
+            <tr class="infos">
+                <td class="meridienCodeColumn">{$item->getMer()}</td>
+                <td class="typeColumn">{$item->getType()}</td>
                 <td>{$item->getDesc()}</td>
                 <td>
-                    <button class="btn btn-primary last-cell-button" type="button" data-toggle="collapse" data-target="#{$item->getId()}" aria-expanded="false" aria-controls="collapseExample">
+                    <button class="btn btn-light last-cell-button" type="button" data-toggle="collapse" data-target="#{$item->getId()}" aria-expanded="false" aria-controls="collapseExample">
                         <i class="material-icons">keyboard_arrow_down</i>
                     </button>
                 </td>

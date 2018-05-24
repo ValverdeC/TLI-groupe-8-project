@@ -24,6 +24,24 @@
 			return $arrayPatho;
 		}
 
+		public function getAllPathoTypes($connex) {
+			$sql="SELECT DISTINCT type from patho";
+
+			$query=$connex->query($sql);
+			$result=$query->fetchAll();
+
+			return $result;
+		}
+
+		public function getAllMeridien($connex) {
+			$sql="SELECT code from meridien";
+
+			$query=$connex->query($sql);
+			$result=$query->fetchAll();
+
+			return $result;
+		}
+
 		public function getPathoByType($connex, $types) {
 			$sql="SELECT idP as id, mer as meridien, type, patho.desc as description from patho where ";
 

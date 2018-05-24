@@ -8,7 +8,19 @@
     width: 100%;
 }
 
+.patho-table td {
+    padding: 0;
+}
+
+.patho-table tr {
+    margin: 15px;
+}
+
 .last-cell-button {
     display: flex;
     margin-left: auto;
+}
+
+.filterForm {
+    display: flex;
 }
