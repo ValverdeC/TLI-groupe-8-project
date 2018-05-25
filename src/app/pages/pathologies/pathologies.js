@@ -64,7 +64,6 @@ $('#content').on('show.bs.collapse', function(e) {
 function getSymptoms($e) {
     $idPatho = $e.target.id;
     $url = 'symptomsList?idPatho=' + $idPatho;
-    console.log($url);
     $.get($url, function(data) {
         $e.target.innerHTML = data;
     });
@@ -147,7 +146,6 @@ function resetList() {
 function closeSymptoms() {
     var table = document.getElementById("patho-table");
     var symptoms = table.getElementsByClassName("symptomsChips");
-    console.log(symptoms);
 
     for(i = 0; i < symptoms.length; i++) {
         symptoms[i].classList.remove('show');

@@ -5,9 +5,11 @@
         <li class="nav-item">
             <button id="allPathoBtn" class="btn btn-link nav-link active">Toutes les pathologies</button>
         </li>
-        <li class="nav-item">
-            <button id="filteredPathoBtn" class="btn btn-link nav-link">Filtrage des pathologies</button>
-        </li>
+        {if isset($userSession)}
+            <li class="nav-item">
+                <button id="filteredPathoBtn" class="btn btn-link nav-link">Filtrage des pathologies</button>
+            </li>
+        {/if}
     </ul>
     <div id="content">
 

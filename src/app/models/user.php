@@ -21,5 +21,9 @@
 		function getEmail() {
 			return $this->email;
 		}
+
+		function toString() {
+			return '{"name":"' . $this->name . '","id":' . $this->id . ', "email":"' . $this->email . '"}';
+		}
 	}
 ?>

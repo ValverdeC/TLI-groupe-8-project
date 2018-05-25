@@ -29,5 +29,11 @@
                         <a class="nav-link" href="pathologies">Pathologies<span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
+                {if isset($userSession)}
+                    <button id="disconnectBtn" type="button" class="btn btn-danger">Déconnexion</button>
+                {/if}
             </div>
         </nav>
+
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script type="text/javascript" src="src/app/pages/header-bar/header-bar.js"></script>

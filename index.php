@@ -1,5 +1,9 @@
 <?php
 
+    include_once('./src/app/models/user.php');
+
+    session_start();
+    
     require("smarty/Smarty.class.php"); // On inclut la classe Smarty
     require_once './parametres/connexion-bdd.php'; // Fonction de connexion à la BDD
     require_once './parametres/fonctions-bdd.php'; // Fonctions de requetes SQL
@@ -7,7 +11,14 @@
     $smarty = new Smarty();
 
     $conn1=Connexion_BDD();
-        
+    
+    if (isset($_SESSION["User"]) && isset($_SESSION["SessionIsOpen"])) {
+		if (!empty($_SESSION["User"]) && $_SESSION["SessionIsOpen"] == true) {
+			$smarty->assign(array(
+				'userSession' => $_SESSION["User"]
+			));
+		}
+	}
     // https://stackoverflow.com/questions/14917599/best-way-to-use-multiple-pages-on-smarty?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
     $headerBar = "src/app/pages/header-bar/header-bar.html";
     $footer = "src/app/pages/footer/footer.tpl";

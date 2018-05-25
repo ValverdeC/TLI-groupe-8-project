@@ -1,42 +1,54 @@
-$(document).ready(function() {
-    var connexionBox = document.getElementById('connexionBox');
-    
-    
-
-    checkCredentials();
+$("#sendCredentials").click(function(e) {
+	connexion();
 });
 
-function checkCredentials() {
-	/*if (checkPassword(formInscription) === true && checkEmail(formInscription) === true) {*/
-		var request = new XMLHttpRequest(), 
-			pseudonyme = "Corentin", 
-			email = "corentin@gmail.com", 
-			password = "Corentin";
-		request.open('GET', '/acuponture/src/app/scripts/user-inscription.php?pseudonyme='.concat(pseudonyme).concat("&&email=").concat(email).concat("&&password=").concat(password), true);
-		request.onreadystatechange = function (aEvt) {
-			if (request.readyState === 4) {
-				if (request.status === 200) {
-					if (request.responseText === "userCreated") {
-                        console.log("OK");
-						/*formInscription.style.display = "None";
-						changeIHMErrorMessageInsc("");
-						document.getElementById("successInsc").innerHTML = "Utilisateur créé !\n Vous pouvez maintenant vous connecter. (" + formInscription.email_inscription.value + ")";*/
-					} else if (request.responseText === "emailAndPseudoAlreadyExist") {
-                        console.log("Les 2");
-						/*changeIHMErrorMessageInsc("Cet email et ce pseudo sont déjà utilisés.");*/
-					} else if (request.responseText === "emailAlreadyExist") {
-                        console.log("email");
-						/*changeIHMErrorMessageInsc("Cet email est déjà utilisé.");*/
-					} else if (request.responseText === "PseudoAlreadyExist") {
-                        console.log("pseudo");
-						/*changeIHMErrorMessageInsc("Ce pseudo est déjà utilisé.");*/
-					}
+function connexion() {
+	var connexionForm = document.getElementById("connexionForm");
+	var request = new XMLHttpRequest(), 
+		email = connexionForm.connexionEmail.value, 
+		password = connexionForm.connexionPwd.value;
+	request.open('GET', '/acuponture/src/app/scripts/user-connexion.php?email='.concat(email).concat("&&password=").concat(password), true);
+	request.onreadystatechange = function (aEvt) {
+		if (request.readyState === 4) {
+			if (request.status === 200) {
+				if (request.responseText === "false") {
+
+				} else if (request.responseText === "true") {
+					localStorage.setItem('user', request.responseText);
+					window.location.reload(true);
 				}
 			}
-		};
-		request.send(null);
-		/*formInscription.identifiant_inscription.setCustomValidity("");*/
-	/*} else {
-		return false;
-	}*/
+		}
+	};
+	request.send(null);
+}
+
+$("#createUserBtn").click(function(e) {
+    createUser();
+});
+
+function createUser() {
+	var userForm = document.getElementById("userForm");
+	var request = new XMLHttpRequest(), 
+		pseudonyme = userForm.pseudonyme.value, 
+		email = userForm.email.value, 
+		password = userForm.password.value;
+	request.open('GET', '/acuponture/src/app/scripts/user-inscription.php?pseudonyme='.concat(pseudonyme).concat("&&email=").concat(email).concat("&&password=").concat(password), true);
+	request.onreadystatechange = function (aEvt) {
+		if (request.readyState === 4) {
+			if (request.status === 200) {
+				if (request.responseText === "emailAndPseudoAlreadyExist") {
+
+				} else if (request.responseText === "emailAlreadyExist") {
+					
+				} else if (request.responseText === "PseudoAlreadyExist") {
+					
+				} else {
+					localStorage.setItem('user', request.responseText);
+					window.location.reload(true);
+				}
+			}
+		}
+	};
+	request.send(null);
 }

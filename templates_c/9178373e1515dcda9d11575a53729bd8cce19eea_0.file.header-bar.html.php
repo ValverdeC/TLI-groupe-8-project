@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-05-25 15:25:15
+/* Smarty version 3.1.30, created on 2018-05-25 22:33:19
   from "C:\wamp64\www\acuponture\src\app\pages\header-bar\header-bar.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5b082adb58c769_62453647',
+  'unifunc' => 'content_5b088f2fba0f37_62224710',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9178373e1515dcda9d11575a53729bd8cce19eea' => 
     array (
       0 => 'C:\\wamp64\\www\\acuponture\\src\\app\\pages\\header-bar\\header-bar.html',
-      1 => 1527261913,
+      1 => 1527287596,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b082adb58c769_62453647 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b088f2fba0f37_62224710 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!doctype html>
 <html lang="fr">
@@ -53,6 +53,16 @@ function content_5b082adb58c769_62453647 (Smarty_Internal_Template $_smarty_tpl)
                         <a class="nav-link" href="pathologies">Pathologies<span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
+                <?php if (isset($_smarty_tpl->tpl_vars['userSession']->value)) {?>
+                    <button id="disconnectBtn" type="button" class="btn btn-danger">Déconnexion</button>
+                <?php }?>
             </div>
-        </nav><?php }
+        </nav>
+
+        <?php echo '<script'; ?>
+ src="https://code.jquery.com/jquery-3.1.1.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ type="text/javascript" src="src/app/pages/header-bar/header-bar.js"><?php echo '</script'; ?>
+><?php }
 }

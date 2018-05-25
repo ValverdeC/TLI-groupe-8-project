@@ -1,27 +1,33 @@
 <?php
     session_start(); 
     if (isset($_GET["pseudonyme"]) && isset($_GET["email"]) && isset($_GET["password"])) {
-		if (!empty($_GET["pseudonyme"]) && !empty($_GET["email"]) && !empty($_GET["password"])) {
+        $pseudo = $_GET["pseudonyme"];
+        $email = $_GET["email"];
+        $pwd = $_GET["password"];
+		if (!empty($pseudo) && !empty($email) && !empty($pwd)) {
             require_once '../controllers/user-controller.php';
             require_once '../../../parametres/connexion-bdd.php'; // Fonction de connexion à la BDD
             $UserController = new UserController();
 
             $connex=Connexion_BDD();
                         
-            if ($UserController->isEmailExists($connex, $_GET["email"])) {
-                if ($UserController->isPseudonymeExists($connex, $_GET["pseudonyme"])) {
+            if ($UserController->isEmailExists($connex, $email)) {
+                if ($UserController->isPseudonymeExists($connex, $pseudo)) {
                     echo "emailAndPseudoAlreadyExist";
                 }
                 else {
                     echo "emailAlreadyExist";
                 }
             } else{
-                if ($UserController->isPseudonymeExists($connex, $_GET["pseudonyme"])) {
+                if ($UserController->isPseudonymeExists($connex, $pseudo)) {
                     echo "PseudoAlreadyExist";
                 } else{
-                    /*$User = new User(NULL, $_GET["pseudonyme"], $_GET["email"], $_GET["password"]);
-                    $UserController->createUser($User);*/
-                    echo "userCreated";
+                    $user = $UserController->create($connex, $pseudo, $email, $pwd);
+
+                    $_SESSION["SessionIsOpen"] = true;
+                    $_SESSION["User"] = $user;
+                    
+                    echo $user->toString();
                 }
             }
 		} else {
