@@ -18,6 +18,15 @@
                 <option value="{$item.code}">{$item.code}</option>
             {/foreach}
         </select>
+        <select id="caracteristicSelector" class="custom-select" onchange="filter()">
+            <option selected value="-1">Caractéristique</option>
+            <option value="plein">plein</option>
+            <option value="chaud">chaud</option>
+            <option value="vide">vide</option>
+            <option value="froid">froid</option>
+            <option value="interne">interne</option>
+            <option value="externe">externe</option>
+        </select>
     </div>
 </form>
 <div id="pathos">
