@@ -86,10 +86,6 @@ function filterByType() {
                 }
             }
         }
-    } else {
-        for(i = 0; i < infos.length; i++) {
-            infos[i].style.display = "";
-        }
     }
 }
 
@@ -109,15 +105,16 @@ function filterByMeridienCode() {
                 }
             }
         }
-    } else {
-        for(i = 0; i < infos.length; i++) {
-            infos[i].style.display = "";
-        }
     }
 }
 
 function filter() {
-    var input, filter, ul, li, a, i;
+    resetList();
+    closeSymptoms();
+    filterByMeridienCode();
+    filterByType();
+
+    /*var input, filter, ul, li, a, i;
     input = document.getElementById("myInput");
     filter = input.value.toUpperCase();
     ul = document.getElementById("myUL");
@@ -130,5 +127,24 @@ function filter() {
             li[i].style.display = "none";
 
         }
+    }*/
+}
+
+function resetList() {
+    var meridienCodeSelector = document.getElementById("meridienCodeSelector").value;
+    var infos = document.getElementsByClassName("infos");
+
+    for(i = 0; i < infos.length; i++) {
+        infos[i].style.display = "";
+    }
+}
+
+function closeSymptoms() {
+    var table = document.getElementById("patho-table");
+    var symptoms = table.getElementsByClassName("symptomsChips");
+    console.log(symptoms);
+
+    for(i = 0; i < symptoms.length; i++) {
+        symptoms[i].classList.remove('show');
     }
 }

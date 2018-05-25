@@ -1,16 +1,24 @@
-<form class="filterForm">
-    <select id="typeSelector" class="custom-select" onchange="filterByType()">
-        <option selected value="-1">Type</option>
-        {foreach from=$types item=item}
-            <option value="{$item.type}">{$item.type}</option>
-        {/foreach}
-    </select>
-    <select id="meridienCodeSelector" class="custom-select" onchange="filterByMeridienCode()">
-        <option selected value="-1">Méridien</option>
-        {foreach from=$meridiens item=item}
-            <option value="{$item.code}">{$item.code}</option>
-        {/foreach}
-    </select>
+<form class="my-2 my-lg-0 w-100 filterForm">
+    <div class="searchBar">
+        <input class="form-control mr-sm-2 searchbar" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </div>
+<!--/form>
+<form class="filterForm"-->
+    <div class="searchBar">
+        <select id="typeSelector" class="custom-select" onchange="filter()">
+            <option selected value="-1">Type</option>
+            {foreach from=$types item=item}
+                <option value="{$item.type}">{$item.type}</option>
+            {/foreach}
+        </select>
+        <select id="meridienCodeSelector" class="custom-select" onchange="filter()">
+            <option selected value="-1">Méridien</option>
+            {foreach from=$meridiens item=item}
+                <option value="{$item.code}">{$item.code}</option>
+            {/foreach}
+        </select>
+    </div>
 </form>
 <div id="pathos">
     
