@@ -12,3 +12,7 @@
 .searchbar {
     flex-grow: 1;
 }
+
+.card.connexion {
+    width: 30vw;
+}

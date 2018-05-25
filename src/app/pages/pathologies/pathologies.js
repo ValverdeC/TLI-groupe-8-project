@@ -2,7 +2,7 @@ $(document).ready(function() {
     $.get('pathologiesAll', function(data) {
         $('#content').html(data);
     });
-})
+});
 
 $("#allPathoBtn").click(function(e) {
     $.get('pathologiesAll', function(data) {
