@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2018-05-25 22:51:28
+/* Smarty version 3.1.30, created on 2018-05-28 14:51:43
   from "C:\wamp64\www\acuponture\src\app\pages\home\home.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5b089370861639_93330032',
+  'unifunc' => 'content_5b0c177fa2c7e5_55432440',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b45729f3f04fd175bee7f337f52e95fdab1d5575' => 
     array (
       0 => 'C:\\wamp64\\www\\acuponture\\src\\app\\pages\\home\\home.html',
-      1 => 1527288685,
+      1 => 1527519099,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5b089370861639_93330032 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5b0c177fa2c7e5_55432440 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
         <div class="container-fluid content">
@@ -84,36 +84,12 @@ function content_5b089370861639_93330032 (Smarty_Internal_Template $_smarty_tpl)
             <?php }?>
         </div>
 
+        <div id="alert-placeholder"></div>
+
         <?php echo '<script'; ?>
  src="https://code.jquery.com/jquery-3.1.1.min.js"><?php echo '</script'; ?>
 >
         <?php echo '<script'; ?>
  type="text/javascript" src="src/app/pages/home/home.js"><?php echo '</script'; ?>
->
-
-        <!--table>
-            <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['list']->value, 'item');
-if ($_from !== null) {
-foreach ($_from as $_smarty_tpl->tpl_vars['item']->value) {
-?>
-                <tr>
-                    <td><?php echo $_smarty_tpl->tpl_vars['item']->value['code'];?>
-</td>
-                    <td><?php echo $_smarty_tpl->tpl_vars['item']->value['nom'];?>
-</td>
-                    <td><?php echo $_smarty_tpl->tpl_vars['item']->value['element'];?>
-</td>
-                    <td><?php echo $_smarty_tpl->tpl_vars['item']->value['yin'];?>
-</td>
-                </tr>
-            <?php
-}
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
-?>
-
-        </table-->
-
-        <?php }
+>        <?php }
 }

@@ -35,10 +35,13 @@
 			
 			$query=$connex->query($sql);
             $result=$query->fetchAll();
-            
-            $user = new User($result[0]['id'], $result[0]['pseudonyme'], $result[0]['email']);
-			
-			return $user;
+
+            if ($result != null && count($result) == 1) {
+                $user = new User($result[0]['id'], $result[0]['pseudonyme'], $result[0]['email']);
+                return $user;
+            } else {
+                return false;
+            }
         }
         
         public function isEmailExists($connex, $email) {
@@ -47,7 +50,7 @@
             $query=$connex->query($sql);
             $result=$query->fetchAll();
             
-            if ($result != null && sizeof($result) == 1) {
+            if ($result != null && count($result) == 1) {
                 return true;
             } else {
                 return false;
@@ -60,7 +63,7 @@
             $query=$connex->query($sql);
             $result=$query->fetchAll();
             
-            if ($result != null && sizeof($result) == 1) {
+            if ($result != null && count($result) == 1) {
                 return true;
             } else {
                 return false;

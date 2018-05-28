@@ -126,16 +126,50 @@ function filterByCaracteristic() {
     }
 }
 
+function filterByKeyWord() {
+    var keyWords = document.getElementById("keyWords").value;
+    var keyWordsArray = [];
+
+    if (keyWords != null && keyWords != '') {
+        keyWords = keyWords.replace(/\s+/g,' '); // Suppression des espaces inutiles
+        if (keyWords != ' ') {
+            keyWordsArray = keyWords.toLowerCase().split(' ');
+        } else {
+            return;
+        }
+    } else {
+        return;
+    }
+    
+    var infos = document.getElementsByClassName("infos");
+
+    if (keyWordsArray.length > 0) {
+        for(i = 0; i < infos.length; i++) {
+            var type = infos[i].getElementsByClassName("descColumn");
+
+            keyWordsArray.forEach((word) => {
+                if (!type[0].innerHTML.includes(word)) {
+                    infos[i].style.display = "none";
+                } else {
+                    if (infos[i].style.display != "none") {
+                        infos[i].style.display = "";
+                    }
+                }
+            });
+        }
+    }
+}
+
 function filter() {
     resetList();
     closeSymptoms();
     filterByMeridienCode();
     filterByType();
     filterByCaracteristic();
+    filterByKeyWord();
 }
 
 function resetList() {
-    var meridienCodeSelector = document.getElementById("meridienCodeSelector").value;
     var infos = document.getElementsByClassName("infos");
 
     for(i = 0; i < infos.length; i++) {

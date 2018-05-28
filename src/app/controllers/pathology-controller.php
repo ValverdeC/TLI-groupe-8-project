@@ -66,7 +66,7 @@
 		}
 
 		public function getAllSymptomsByPathoId($connex, $idPatho) {
-			$sql="SELECT symptome.idS as id, symptome.desc as description FROM symptpatho LEFT JOIN symptome ON symptome.idS = symptpatho.idS WHERE idP = $idPatho";
+			$sql="SELECT symptome.idS as id, symptome.desc as description FROM symptPatho LEFT JOIN symptome ON symptome.idS = symptPatho.idS WHERE idP = $idPatho";
 
 			$query=$connex->query($sql);
 			$result=$query->fetchAll();

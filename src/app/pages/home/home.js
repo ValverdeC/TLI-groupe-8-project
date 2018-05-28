@@ -1,3 +1,5 @@
+$("#notify-alert").hide();
+
 $("#sendCredentials").click(function(e) {
 	connexion();
 });
@@ -7,13 +9,13 @@ function connexion() {
 	var request = new XMLHttpRequest(), 
 		email = connexionForm.connexionEmail.value, 
 		password = connexionForm.connexionPwd.value;
-	request.open('GET', '/acuponture/src/app/scripts/user-connexion.php?email='.concat(email).concat("&&password=").concat(password), true);
+	request.open('GET', 'src/app/scripts/user-connexion.php?email='.concat(email).concat("&&password=").concat(password), true);
 	request.onreadystatechange = function (aEvt) {
 		if (request.readyState === 4) {
 			if (request.status === 200) {
-				if (request.responseText === "false") {
-
-				} else if (request.responseText === "true") {
+				if (request.responseText !== "true") {
+					addNotification(request.responseText);
+				} else {
 					localStorage.setItem('user', request.responseText);
 					window.location.reload(true);
 				}
@@ -33,16 +35,20 @@ function createUser() {
 		pseudonyme = userForm.pseudonyme.value, 
 		email = userForm.email.value, 
 		password = userForm.password.value;
-	request.open('GET', '/acuponture/src/app/scripts/user-inscription.php?pseudonyme='.concat(pseudonyme).concat("&&email=").concat(email).concat("&&password=").concat(password), true);
+	request.open('GET', 'src/app/scripts/user-inscription.php?pseudonyme='.concat(pseudonyme).concat("&&email=").concat(email).concat("&&password=").concat(password), true);
 	request.onreadystatechange = function (aEvt) {
 		if (request.readyState === 4) {
 			if (request.status === 200) {
-				if (request.responseText === "emailAndPseudoAlreadyExist") {
-
-				} else if (request.responseText === "emailAlreadyExist") {
-					
-				} else if (request.responseText === "PseudoAlreadyExist") {
-					
+				if (request.responseText === "emailPseudoUsed") {
+					addNotification("Cet email et ce pseudonyme sont déjà utilisés ...");
+				} else if (request.responseText === "emailUsed") {
+					addNotification("Cet email est déjà utilisé ...");
+				} else if (request.responseText === "PseudoUsed") {
+					addNotification("Ce pseudonyme est déjà utilisé ...");
+				} else if (request.responseText === "emptyFields") {
+					addNotification("Merci de renseigner tous les champs !");
+				} else if (request.responseText === "false") {
+					addNotification("Erreur lors de la création de l'utilisateur !");
 				} else {
 					localStorage.setItem('user', request.responseText);
 					window.location.reload(true);
@@ -52,3 +58,11 @@ function createUser() {
 	};
 	request.send(null);
 }
+
+function addNotification(text) {
+	var id = new Date().getTime();
+	$('#alert-placeholder').html($('#alert-placeholder').html() + '<div id="' + id + '" class="alert alert-danger alert-dismissible fade show" role="alert"><span class="alert-text">' + text + '</span><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+	setTimeout(function () {
+		$("#" + id).hide();
+	}, 2500);
+} 

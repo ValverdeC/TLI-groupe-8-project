@@ -1,7 +1,7 @@
 <?php
 	session_start(); 
 
-	unset($_SESSION["SessionIsOpen"]);
+	unset($_SESSION["IsSessionOpen"]);
 	unset($_SESSION["User"]);
 
 	echo "true";

@@ -13,29 +13,29 @@
                         
             if ($UserController->isEmailExists($connex, $email)) {
                 if ($UserController->isPseudonymeExists($connex, $pseudo)) {
-                    echo "emailAndPseudoAlreadyExist";
+                    echo "emailPseudoUsed";
                 }
                 else {
-                    echo "emailAlreadyExist";
+                    echo "emailUsed";
                 }
             } else{
                 if ($UserController->isPseudonymeExists($connex, $pseudo)) {
-                    echo "PseudoAlreadyExist";
+                    echo "PseudoUsed";
                 } else{
                     $user = $UserController->create($connex, $pseudo, $email, $pwd);
 
-                    $_SESSION["SessionIsOpen"] = true;
+                    $_SESSION["IsSessionOpen"] = true;
                     $_SESSION["User"] = $user;
                     
                     echo $user->toString();
                 }
             }
+
+            Deconnexion_BDD($connex);
 		} else {
-			echo false;
+			echo "emptyFields";
 		}
 	} else {
-        echo false;
+        echo "false";
     }
-
-    Deconnexion_BDD($connex);
 ?>

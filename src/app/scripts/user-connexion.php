@@ -11,21 +11,22 @@
             $connex=Connexion_BDD();
             
             $user = $UserController->login($connex, $email, $pwd);
+            
             if ($user) {
 
-                $_SESSION["SessionIsOpen"] = true;
+                $_SESSION["IsSessionOpen"] = true;
                 $_SESSION["User"] = $user;
                 
                 echo "true";
             } else{
-                echo "false";
+                echo "Login/Mot de Passe incorrects";
             }
+
+            Deconnexion_BDD($connex);
 		} else {
-			echo "false";
+			echo "Merci de compléter tous les champs";
 		}
 	} else {
         echo "false";
     }
-
-    Deconnexion_BDD($connex);
 ?>

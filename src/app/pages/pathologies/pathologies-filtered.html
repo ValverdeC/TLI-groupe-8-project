@@ -1,34 +1,41 @@
-<form class="my-2 my-lg-0 w-100 filterForm">
+<div class="my-2 my-lg-0 w-100 filterForm">
+    <label for="keyWords" class="col-form-label">Saisir des mots-clés séparés par des espaces pour filtrer sur la description :</label>
+    <input id="keyWords" class="form-control mr-sm-2" type="search" placeholder="Mots-clés" aria-label="Search" oninput="filter()">
     <div class="searchBar">
-        <input class="form-control mr-sm-2 searchbar" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <div class="search-item">
+            <label for="meridienCodeSelector" class="col-form-label">Méridien :</label>
+            <select id="meridienCodeSelector" class="custom-select" onchange="filter()">
+                <option selected value="-1"></option>
+                {foreach from=$meridiens item=item}
+                    <option value="{$item.code}">{$item.code}</option>
+                {/foreach}
+            </select>
+        </div>
+
+        <div class="search-item">
+            <label for="typeSelector" class="col-form-label">Type :</label>
+            <select id="typeSelector" class="custom-select" onchange="filter()">
+                <option selected value="-1"></option>
+                {foreach from=$types item=item}
+                    <option value="{$item.type}">{$item.type}</option>
+                {/foreach}
+            </select>
+        </div>
+        
+        <div class="search-item">
+            <label for="caracteristicSelector" class="col-form-label">Caractéristique :</label>
+            <select id="caracteristicSelector" class="custom-select" onchange="filter()">
+                <option selected value="-1"></option>
+                <option value="plein">Plein</option>
+                <option value="chaud">Chaud</option>
+                <option value="vide">Vide</option>
+                <option value="froid">Froid</option>
+                <option value="interne">Interne</option>
+                <option value="externe">Externe</option>
+            </select>
+        </div>
     </div>
-<!--/form>
-<form class="filterForm"-->
-    <div class="searchBar">
-        <select id="typeSelector" class="custom-select" onchange="filter()">
-            <option selected value="-1">Type</option>
-            {foreach from=$types item=item}
-                <option value="{$item.type}">{$item.type}</option>
-            {/foreach}
-        </select>
-        <select id="meridienCodeSelector" class="custom-select" onchange="filter()">
-            <option selected value="-1">Méridien</option>
-            {foreach from=$meridiens item=item}
-                <option value="{$item.code}">{$item.code}</option>
-            {/foreach}
-        </select>
-        <select id="caracteristicSelector" class="custom-select" onchange="filter()">
-            <option selected value="-1">Caractéristique</option>
-            <option value="plein">plein</option>
-            <option value="chaud">chaud</option>
-            <option value="vide">vide</option>
-            <option value="froid">froid</option>
-            <option value="interne">interne</option>
-            <option value="externe">externe</option>
-        </select>
-    </div>
-</form>
-<div id="pathos">
+</div>
+<div id="pathos" class="card filtered">
     
 </div>

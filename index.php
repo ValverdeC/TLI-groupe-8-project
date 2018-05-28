@@ -6,14 +6,13 @@
     
     require("smarty/Smarty.class.php"); // On inclut la classe Smarty
     require_once './parametres/connexion-bdd.php'; // Fonction de connexion à la BDD
-    require_once './parametres/fonctions-bdd.php'; // Fonctions de requetes SQL
     require_once 'src/app/controllers/pathology-controller.php'; // Fonctions de requetes SQL
     $smarty = new Smarty();
 
     $conn1=Connexion_BDD();
     
-    if (isset($_SESSION["User"]) && isset($_SESSION["SessionIsOpen"])) {
-		if (!empty($_SESSION["User"]) && $_SESSION["SessionIsOpen"] == true) {
+    if (isset($_SESSION["User"]) && isset($_SESSION["IsSessionOpen"])) {
+		if (!empty($_SESSION["User"]) && $_SESSION["IsSessionOpen"] == true) {
 			$smarty->assign(array(
 				'userSession' => $_SESSION["User"]
 			));
@@ -24,15 +23,11 @@
     $footer = "src/app/pages/footer/footer.tpl";
     if(empty($_GET["page"])) {
         $template="src/app/pages/home/home.html";
-        $result = Afficher_Meridien($conn1)->fetchAll();
-        $smarty->assign('list', $result);
     } else {
         $page = $_GET["page"];
         switch ($page) {
             case "home":
                 $template="src/app/pages/home/home.html";
-                $result = Afficher_Meridien($conn1)->fetchAll();
-                $smarty->assign('list', $result);
                 break;
             case "pathologies":
                 $template="src/app/pages/pathologies/pathologies.html";
