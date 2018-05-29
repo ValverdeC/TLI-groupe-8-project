@@ -91,6 +91,9 @@
                 echo $smarty->fetch($template);
                 die();
                 break;
+            case "":
+                $template="src/app/pages/home/home.html";
+                break;
             default:
                 $template="src/app/pages/404.tpl";
                 break;

@@ -2468,3 +2468,16 @@ INSERT INTO `symptPatho` (`idS`, `idP`, `aggr`) VALUES
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+--
+-- Structure de la table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pseudonyme` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
