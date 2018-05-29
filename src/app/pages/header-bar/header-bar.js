@@ -31,7 +31,7 @@ function activePathoLink() {
 function disconnect() {
 	var request = new XMLHttpRequest();
 
-	request.open('GET', '/acuponture/src/app/scripts/user-disconnect.php', true);
+	request.open('GET', 'src/app/scripts/user-disconnect.php', true);
 	request.onreadystatechange = function (aEvt) {
 		if (request.readyState === 4) {
 			if (request.status == 200) {
