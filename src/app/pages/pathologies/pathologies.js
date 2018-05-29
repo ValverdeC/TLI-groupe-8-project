@@ -2,17 +2,36 @@ $(document).ready(function() {
     $.get('pathologiesAll', function(data) {
         $('#content').html(data);
     });
+    var hash = window.location.hash;
+    if(hash) {
+        if(hash === "#filtered") {
+            displayFilteredPatho();
+        } else {
+            displayAllPatho();
+        }
+    } else {
+        displayAllPatho();
+    }
 });
 
 $("#allPathoBtn").click(function(e) {
+    displayAllPatho();
+});
+
+function displayAllPatho() {
     $.get('pathologiesAll', function(data) {
         $('#content').html(data);
     });
     document.getElementById("filteredPathoBtn").classList.remove('active');
     document.getElementById("allPathoBtn").classList.add('active');
-});
+    window.location.hash = 'all';
+}
 
 $("#filteredPathoBtn").click(function() {
+    displayFilteredPatho();
+});
+
+function displayFilteredPatho() {
     $.get('pathologiesFiltered', function(data) {
         $('#content').html(data);
     });
@@ -21,7 +40,8 @@ $("#filteredPathoBtn").click(function() {
     });
     document.getElementById("allPathoBtn").classList.remove('active');
     document.getElementById("filteredPathoBtn").classList.add('active');
-});
+    window.location.hash = 'filtered';
+}
 
 $('#content').on('show.bs.collapse', function(e) {
     switch(e.target.id) {
@@ -56,7 +76,14 @@ $('#content').on('show.bs.collapse', function(e) {
             break;
 
         default:
-            getSymptoms(e);
+            var hash = window.location.hash;
+            if(hash) {
+                if(hash !== "#filtered") {
+                    getSymptoms(e);
+                }
+            } else {
+                getSymptoms(e);
+            }
             break;
     }
 });
@@ -65,7 +92,8 @@ function getSymptoms($e) {
     $idPatho = $e.target.id;
     $url = 'symptomsList?idPatho=' + $idPatho;
     $.get($url, function(data) {
-        $e.target.innerHTML = data;
+        var card = document.getElementById($idPatho);
+        card.getElementsByClassName("card")[0].innerHTML = data;
     });
 }
 
@@ -145,7 +173,8 @@ function filterByKeyWord() {
 
     if (keyWordsArray.length > 0) {
         for(i = 0; i < infos.length; i++) {
-            var type = infos[i].getElementsByClassName("descColumn");
+            //console.log(infos[i]);
+            var type = infos[i].getElementsByClassName("symptColumn");
 
             keyWordsArray.forEach((word) => {
                 if (!type[0].innerHTML.includes(word)) {

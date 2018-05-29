@@ -1,20 +1,23 @@
-.content {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
+#home-img {
+    /* Source : w3school */
+
+    /* The image used */
+    background-image: url("../../../../assets/img/homeImg.jpg");
+
+    /* Full height */
+    height: calc(100vh - 60px); /* 60px pour navbar */
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.searchbar-form {
+.home-content {
     display: flex;
     flex-direction: row;
-}
-
-.searchbar {
-    flex-grow: 1;
-}
-
-.card.connexion {
-    width: 30vw;
+    justify-content: space-between;
+    padding: 20px;
 }
 
 #alert-placeholder {
@@ -26,4 +29,54 @@
     z-index: 2000;
     top: 2vh;
     right: 2vh;
+}
+
+.new-account-btn {
+    white-space: normal;
+}
+
+@media screen and (min-width: 200px) and (max-width: 640px) {
+    .card.connexion {
+        width: calc(100vw - 40px); /* 40px pour le padding */ 
+    }
+}
+
+@media screen and (min-width: 200px) and (max-width: 1000px) {
+    .home-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #member-card {
+        max-width: 80vw;
+    }
+    
+    #presentation-card {
+        max-width: 80vw;
+    }
+}
+
+@media screen and (min-width: 640px) and (max-width: 1000px) {
+    .card.connexion {
+        width: calc(50vw - 40px); /* 40px pour le padding */ 
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .home-content {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .card.connexion {
+        width: calc(30vw - 40px); /* 40px pour le padding */ 
+    }
+
+    #member-card {
+        max-width: 20vw;
+    }
+    
+    #presentation-card {
+        max-width: 50vw;
+    }
 }

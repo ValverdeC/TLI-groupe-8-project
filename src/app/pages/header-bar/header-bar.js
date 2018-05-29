@@ -1,11 +1,32 @@
 $(document).ready(function() {
-	var user = localStorage.getItem('user');
-
+	if (document.URL.substr(document.URL.lastIndexOf('/') + 1) == "home") {
+		activeHomeLink();
+	} else {
+		activePathoLink();
+	}
 });
 
 $("#disconnectBtn").click(function(e) {
     disconnect();
 });
+
+$("#home-link").click(function(e) {
+	activeHomeLink();
+});
+
+function activeHomeLink() {
+	document.getElementById("home-link").classList.add('active');
+	document.getElementById("patho-link").classList.remove('active');
+}
+
+$("#patho-link").click(function(e) {
+	activePathoLink();
+});
+
+function activePathoLink() {
+	document.getElementById("home-link").classList.remove('active');
+	document.getElementById("patho-link").classList.add('active');
+}
 
 function disconnect() {
 	var request = new XMLHttpRequest();

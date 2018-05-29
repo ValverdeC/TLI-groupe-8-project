@@ -1,27 +1,36 @@
 <table id="patho-table" class="patho-table">
     <tr>
-        <th>Méridien</th>
-        <th>Type</th>
-        <th>Description</th>
+        <th class="meridienCodeColumn">Méridien</th>
+        <th class="typeColumn">Type</th>
+        <th class="descColumn">Description</th>
+        <th></th>
     </tr>
     {foreach from=$pathologies item=item}
             <tr class="infos">
-                <td class="meridienCodeColumn">{$item->getMer()}</td>
-                <td class="typeColumn">{$item->getType()}</td>
-                <td class="descColumn">{$item->getDesc()}</td>
-                <td>
-                    <button class="btn btn-light last-cell-button" type="button" data-toggle="collapse" data-target="#{$item->getId()}" aria-expanded="false" aria-controls="collapseExample">
-                        <i class="material-icons">keyboard_arrow_down</i>
-                    </button>
-                </td>
-            </tr>
-            <tr>
                 <td colspan="4">
-                    <div class="symptomsChips collapse" id="{$item->getId()}">
-                        <div class="card card-body">
-                            
-                        </div>
-                    </div>
+                    <table class="patho-table">
+                        <tr>
+                            <td class="meridienCodeColumn">{$item->getMer()}</td>
+                            <td class="typeColumn">{$item->getType()}</td>
+                            <td class="descColumn">{$item->getDesc()}</td>
+                            <td>
+                                <button class="btn btn-light last-cell-button" type="button" data-toggle="collapse" data-target="#{$item->getId()}" aria-expanded="false" aria-controls="collapseExample">
+                                    <i class="material-icons">keyboard_arrow_down</i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <div class="symptomsChips collapse" id="{$item->getId()}">
+                                    <div class="card card-body">
+                                        {foreach from=$item->getSymptoms() item=symptoms}
+                                            <span class="symptColumn badge badge-pill badge-warning">{$symptoms->getDesc()}</span>
+                                        {/foreach}
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
                 </td>
             </tr>
     {/foreach}

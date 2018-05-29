@@ -1,6 +1,8 @@
 <div class="my-2 my-lg-0 w-100 filterForm">
-    <label for="keyWords" class="col-form-label">Saisir des mots-clés séparés par des espaces pour filtrer sur la description :</label>
-    <input id="keyWords" class="form-control mr-sm-2" type="search" placeholder="Mots-clés" aria-label="Search" oninput="filter()">
+    {if isset($userSession)}
+        <label for="keyWords" class="col-form-label">Saisir des symptômes séparés par des espaces pour filtrer les pathologies :</label>
+        <input id="keyWords" class="form-control mr-sm-2" type="search" placeholder="Symptôme(s)" aria-label="Search" oninput="filter()">
+    {/if}
     <div class="searchBar">
         <div class="search-item">
             <label for="meridienCodeSelector" class="col-form-label">Méridien :</label>
